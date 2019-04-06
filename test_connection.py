@@ -1,6 +1,5 @@
 
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
-import RPi.GPIO as GPIO
 import time
 
 # A random programmatic shadow client ID.
@@ -8,7 +7,7 @@ SHADOW_CLIENT = "node1_shadow"
 
 # The unique hostname that AWS IoT generated for 
 # this device.
-HOST_NAME = "793874111964-ats.iot.us-east-1.amazonaws.com"
+HOST_NAME = "a1qhjls5ihpm8a-ats.iot.us-east-1.amazonaws.com"
 
 # The relative path to the correct root CA file for AWS IoT, 
 # that you have already saved onto this device.
@@ -22,7 +21,7 @@ PRIVATE_KEY = "b0e3b3f742-private.pem.key"
 # The relative path to your certificate file that 
 # AWS IoT generated for this device, that you 
 # have already saved onto this device.
-CERT_FILE = "b0e3b3f742-certificate.pem.crt.txt"
+CERT_FILE = "b0e3b3f742-certificate.pem.crt"
 
 # A programmatic shadow handler name prefix.
 SHADOW_HANDLER = "node_1"
