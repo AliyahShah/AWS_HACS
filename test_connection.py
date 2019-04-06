@@ -3,7 +3,7 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
 import time
 
 # A random programmatic shadow client ID.
-SHADOW_CLIENT = "node1_shadow"
+SHADOW_CLIENT = "node_1"
 
 # The unique hostname that AWS IoT generated for 
 # this device.
@@ -50,7 +50,7 @@ myDeviceShadow = myShadowClient.createShadowHandlerWithName(
 
 while True:
   myDeviceShadow.shadowUpdate(
-    '{"node_1":"connected"}',
+    '{"state":{"reported":{"node":"node_1"}}}',
   myShadowUpdateCallback, 5)
 
   # Wait for this test value to be added.
