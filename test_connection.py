@@ -1,5 +1,6 @@
 
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
+import json
 import time
 
 # A random programmatic shadow client ID.
@@ -48,10 +49,18 @@ myShadowClient.connect()
 myDeviceShadow = myShadowClient.createShadowHandlerWithName(
   SHADOW_HANDLER, True)
 
-while True:
+def publish_to_iot(data):
   myDeviceShadow.shadowUpdate(
-    '{"state":{"reported":{"node":"node_1"}}}',
+    '{"state":{"reported":' + json.dumps(data) + '}}',
   myShadowUpdateCallback, 5)
+
+while True:
+  data = {
+    "node":"node-1",
+    "rssi":"123",
+    "mac-address":"94-65-9C-D6-6A-C9"
+  }
+  publish_to_iot(data)
 
   # Wait for this test value to be added.
   time.sleep(60)
