@@ -1,5 +1,7 @@
 # HACS498 - AWS/ACES
-The goal of this project is create a sytem that identifies and tracks MAC addresses. 3 Raspberry pis are being used as sensors for wireless trilateration. 
+The goal of this project is create a system that identifies and tracks MAC addresses. 3 Raspberry pis are being used as sensors for wireless trilateration. 
+
+This Repo has the certs for all 3 nodes in it (I did the setup in the AWS console for each Pi already). Each Pi only needs one of the folders. **The Pi I have is running as `node_1`. Eric, yours can be `node_2`, and we'll make the one Ethan has `node_3`.** 
 
 ## Setup Pi and SSH into it
 Not sure if there's a different way to do this but here's what I did: 
