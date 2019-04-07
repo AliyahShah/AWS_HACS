@@ -1,9 +1,10 @@
 
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
 import time
+import json
 
 # A random programmatic shadow client ID.
-SHADOW_CLIENT = "node_1"
+SHADOW_CLIENT = "node_3"
 
 # The unique hostname that AWS IoT generated for 
 # this device.
@@ -24,7 +25,7 @@ PRIVATE_KEY = "b0e3b3f742-private.pem.key"
 CERT_FILE = "b0e3b3f742-certificate.pem.crt"
 
 # A programmatic shadow handler name prefix.
-SHADOW_HANDLER = "node_1"
+SHADOW_HANDLER = "node_3"
 
 # Automatically called whenever the shadow is updated.
 def myShadowUpdateCallback(payload, responseStatus, token):
@@ -43,16 +44,27 @@ myShadowClient.configureCredentials(ROOT_CA, PRIVATE_KEY,
 myShadowClient.configureConnectDisconnectTimeout(10)
 myShadowClient.configureMQTTOperationTimeout(5)
 myShadowClient.connect()
-
-# Create a programmatic representation of the shadow.
 myDeviceShadow = myShadowClient.createShadowHandlerWithName(
   SHADOW_HANDLER, True)
 
-while True:
+
+ """Publish method to AWS IOT topic: $aws/things/node_3/shadow/update/#
+    The "state" and "reported" fields are required by IOT
+    INPUT: data: a json object
+"""
+def publish_to_iot(data):
   myDeviceShadow.shadowUpdate(
-    '{"state":{"reported":{"node":"node_1"}}}',
+    '{"state":{"reported":' + json.dumps(data) + '}}',
   myShadowUpdateCallback, 5)
 
-  # Wait for this test value to be added.
+#for testing, just keep publishing the same message
+#TODO: remove this once we start having real data
+while True:
+  data = {
+    "node":"node-3",
+    "rssi":"123",
+    "mac-address":"94-65-9C-D6-6A-C8"
+  }
+  publish_to_iot(data)
   time.sleep(60)
 
