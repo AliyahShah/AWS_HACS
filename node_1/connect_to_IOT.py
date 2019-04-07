@@ -7,7 +7,7 @@ import json
 SHADOW_CLIENT = "node_1"
 
 # The unique hostname that AWS IoT generated for 
-# this device.
+# this device. (IOT Core->Manage->Things->|ThingName|->Interact)
 HOST_NAME = "a1qhjls5ihpm8a-ats.iot.us-east-1.amazonaws.com"
 
 # The relative path to the correct root CA file for AWS IoT, 

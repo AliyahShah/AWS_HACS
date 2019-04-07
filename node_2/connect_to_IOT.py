@@ -8,7 +8,7 @@ import json
 SHADOW_CLIENT = "node_2"
 
 # The unique hostname that AWS IoT generated for 
-# this device.
+# this device (IOT Core->Manage->Things->|ThingName|->Interact)
 HOST_NAME = "a1qhjls5ihpm8a-ats.iot.us-east-1.amazonaws.com"
 
 # The relative path to the correct root CA file for AWS IoT, 
@@ -18,12 +18,12 @@ ROOT_CA = "rootca.pem"
 # The relative path to your private key file that 
 # AWS IoT generated for this device, that you 
 # have already saved onto this device.
-PRIVATE_KEY = "b0e3b3f742-private.pem.key"
+PRIVATE_KEY = "b9e0426d4c-private.pem.key"
 
 # The relative path to your certificate file that 
 # AWS IoT generated for this device, that you 
 # have already saved onto this device.
-CERT_FILE = "b0e3b3f742-certificate.pem.crt"
+CERT_FILE = "b9e0426d4c-certificate.pem.crt"
 
 # A programmatic shadow handler name prefix.
 SHADOW_HANDLER = "node_2"
