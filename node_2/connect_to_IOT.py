@@ -64,7 +64,8 @@ while True:
   data = {
     "node":"node-2",
     "rssi":"123",
-    "mac-address":"94-65-9C-D6-6A-C8"
+    "mac":"94-65-9C-D6-6A-C8",
+    "timestamp":"12345678"
   }
   publish_to_iot(data)
   time.sleep(60)
