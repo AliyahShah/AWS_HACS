@@ -1,7 +1,7 @@
-#HACS498 - AWS/ACES
+# HACS498 - AWS/ACES
 The goal of this project is create a sytem that identifies and tracks MAC addresses. 3 Raspberry pis are being used as sensors for wireless trilateration. 
 
-##Setup Pi and SSH into it
+## Setup Pi and SSH into it
 Not sure if there's a different way to do this but here's what I did: 
 1. Flash the SD card with the OS, put it into the Pi, and boot it up (I added more detailed instructions to the shared google drive)
 2. Connected it to a monitor+mouse+keyboard. 
@@ -16,7 +16,7 @@ Not sure if there's a different way to do this but here's what I did:
 
 Currently, the code will publish the same message over and over to the topic specified. The topic is formatted as follows: `$aws/things/node_<node number>/shadow/update/#`
 
-##View published data in AWS Console
+## View published data in AWS Console
 Navigate to the AWS console. Open the IOT Core service. Click "Test" in the left sidebar menu. In the "subscribe to a topic" view, paste the topic into the "Subscription topic" field and click Subscribe. 
 After subscribing to the topic, run the script on the pi, and you should see the messages coming in. 
 
