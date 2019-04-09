@@ -56,16 +56,3 @@ def publish_to_iot(data):
   myDeviceShadow.shadowUpdate(
     '{"state":{"reported":' + json.dumps(data) + '}}',
   myShadowUpdateCallback, 5)
-
-#for testing, just keep publishing the same message
-#TODO: remove this once we start having real data
-while True:
-  data = {
-    "node":"node-1",
-    "rssi":"123",
-    "mac":"94-65-9C-D6-6A-C8",
-    "timestamp":"12345678"
-  }
-  publish_to_iot(data)
-  time.sleep(60)
-
